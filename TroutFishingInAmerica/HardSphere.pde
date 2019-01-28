@@ -2,20 +2,22 @@ public abstract class HardSphere extends Mover {
     protected float radius;
     protected float mass;
     protected int count;  // number of collisions so far
+    protected boolean highlight;
 
-    private static final float INFINITY = Float.POSITIVE_INFINITY;
+    private static final int INFINITY = Integer.MAX_VALUE;
 
     public HardSphere (PVector position, float radius, float mass) {
         super(position);
         this.radius = radius;
         this.mass = mass;
+        this.highlight = false;
     }
 
     public void move() {
         position.add(velocity);
     }
 
-    public float timeToHit(HardSphere that) {
+    public int timeToHit(HardSphere that) {
         if (this == that) {
             return INFINITY;
         }
@@ -42,24 +44,24 @@ public abstract class HardSphere extends Mover {
             return INFINITY;
         }
 
-        return -(dvdr + sqrt(d)) / dvdv;
+        return round(-(dvdr + sqrt(d)) / dvdv);
     }
 
-    public float timeToHitHorizontalWall() {
+    public int timeToHitHorizontalWall() {
         if (velocity.y > 0) {
-            return (height - position.y - radius) / velocity.y;
+            return round((height - position.y - radius) / velocity.y);
         } else if (velocity.y < 0) {
-            return (radius - position.y) / velocity.y;
+            return round((radius - position.y) / velocity.y);
         } else {
             return INFINITY;
         }
     }
 
-    public float timeToHitVerticalWall() {
+    public int timeToHitVerticalWall() {
         if (velocity.x > 0) {
-            return (width - position.x - radius) / velocity.x;
+            return round((width - position.x - radius) / velocity.x);
         } else if (velocity.x < 0) {
-            return (radius - position.x) / velocity.x;
+            return round((radius - position.x) / velocity.x);
         } else {
             return INFINITY;
         }
@@ -98,5 +100,9 @@ public abstract class HardSphere extends Mover {
 
     public int getCount() {
         return this.count;
+    }
+
+    public void setHighlight(boolean highlight) {
+        this.highlight = highlight;
     }
 }
