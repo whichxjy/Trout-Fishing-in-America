@@ -1,7 +1,7 @@
 public abstract class HardSphere extends Mover {  
-    private float radius;
-    private float mass;
-    private int count;  // number of collisions so far
+    protected float radius;
+    protected float mass;
+    protected int count;  // number of collisions so far
 
     private static final float INFINITY = Float.POSITIVE_INFINITY;
 
