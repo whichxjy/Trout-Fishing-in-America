@@ -6,10 +6,11 @@ public class CollisionSystem {
     private Event nextEvent;                    // next event
     private int limit;                          // limit time
 
-    public CollisionSystem (ArrayList<HardSphere> hardSpheres) {
+    public CollisionSystem(ArrayList<HardSphere> hardSpheres, int limit) {
         this.pq = new MinPQ<Event>();
         this.timer = new Timer();
         this.hardSpheres = hardSpheres;
+        this.limit = limit;
 
         for (HardSphere h : hardSpheres) {
             predict(h);
@@ -17,6 +18,11 @@ public class CollisionSystem {
     }
 
     public void run() {
+        // display all hardSpheres
+        for (HardSphere h : hardSpheres) {
+            h.display();
+        }
+
         // if the event wasn't initialized or was removed, fetch next event from the priority queue
         while (nextEvent == null && !pq.isEmpty()) {
             nextEvent = pq.delMin();
@@ -27,6 +33,10 @@ public class CollisionSystem {
             }
         }
 
+        if (pq.isEmpty()) {
+            background(0);
+        }
+
         // update position
         for (HardSphere h : hardSpheres) {
             h.move();
@@ -34,18 +44,20 @@ public class CollisionSystem {
 
         // if event occurs, update velocity
         if (nextEvent != null && timer.getCurrentTime() == nextEvent.getTime()) {
-            // event occurs 
+            // event occurs
             nextEvent.occur();
+            
             // remove highlight
             nextEvent.removeHighlight();
+
+            predict(nextEvent.roleA);
+            predict(nextEvent.roleB);
+
             // remove event
             nextEvent = null;
         }
 
-        // display all hardSpheres
-        for (HardSphere h : hardSpheres) {
-            h.display();
-        }
+
     }
 
     private void predict(HardSphere hardSphere) {

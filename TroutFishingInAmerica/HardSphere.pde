@@ -6,7 +6,7 @@ public abstract class HardSphere extends Mover {
 
     private static final int INFINITY = Integer.MAX_VALUE;
 
-    public HardSphere (PVector position, float radius, float mass) {
+    public HardSphere(PVector position, float radius, float mass) {
         super(position);
         this.radius = radius;
         this.mass = mass;
@@ -68,8 +68,8 @@ public abstract class HardSphere extends Mover {
     }
 
     public void bounceOff(HardSphere that) {
-        PVector dr = PVector.sub(this.position, that.position); // Delta position
-        PVector dv = PVector.sub(this.velocity, that.velocity); // Delta velocity
+        PVector dr = PVector.sub(that.position, this.position); // Delta position
+        PVector dv = PVector.sub(that.velocity, this.velocity); // Delta velocity
         float dvdr = PVector.dot(dv, dr);
         float dist = this.radius + that.radius;
 
