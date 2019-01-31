@@ -4,12 +4,12 @@ public abstract class Mover {
 
     public Mover(PVector position) {
         this.position = position;
-        
-        // direction
-        PVector dir = new PVector(randomGaussian(), randomGaussian());
+
+        PVector dir = new PVector(random(-10, 10), random(-10, 10));
         dir.normalize();
-        // this.velocity = PVector.mult(dir, 1.0);
-        this.velocity = PVector.mult(dir, randomGaussian() * 1.5);
+        dir.mult(1.0);
+        this.velocity = dir;
+        //this(position, new PVector(randomGaussian() * 0.5, randomGaussian() * 0.5));
     }
 
     public Mover(PVector position, PVector velocity) {
