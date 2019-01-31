@@ -18,11 +18,11 @@ public class CollisionSystem {
     }
 
     public void run() {
-        // display all hardSpheres
-        for (HardSphere h : hardSpheres) {
-            h.display();
-        }
+        update();
+        display();
+    }
 
+    public void update() {
         // if the event wasn't initialized or was removed, fetch next event from the priority queue
         while (nextEvent == null && !pq.isEmpty()) {
             nextEvent = pq.delMin();
@@ -31,10 +31,6 @@ public class CollisionSystem {
             } else {
                 nextEvent = null;
             }
-        }
-
-        if (pq.isEmpty()) {
-            background(0);
         }
 
         // update position
@@ -50,14 +46,12 @@ public class CollisionSystem {
             // remove highlight
             nextEvent.removeHighlight();
 
-            predict(nextEvent.roleA);
-            predict(nextEvent.roleB);
+            predict(nextEvent.getRoleA());
+            predict(nextEvent.getRoleB());
 
             // remove event
             nextEvent = null;
         }
-
-
     }
 
     private void predict(HardSphere hardSphere) {
@@ -88,4 +82,10 @@ public class CollisionSystem {
         }
     }
 
+    // display all hardSpheres
+    public void display() {
+        for (HardSphere h : hardSpheres) {
+            h.display();
+        }
+    }
 }

@@ -11,6 +11,6 @@ public class Particle extends HardSphere {
         } else {
             fill(29, 0, 255);
         }
-        circle(position.x, position.y, radius);
+        circle(position.x, position.y, 2 * radius);
     }
 }

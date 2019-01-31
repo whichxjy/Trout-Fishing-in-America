@@ -19,4 +19,3 @@ public abstract class Mover {
 
     public abstract void display();
 }
-

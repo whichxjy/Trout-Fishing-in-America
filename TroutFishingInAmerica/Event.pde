@@ -58,6 +58,14 @@ public class Event implements Comparable<Event> {
         }
     }
 
+    public HardSphere getRoleA() {
+        return this.roleA;
+    }
+
+    public HardSphere getRoleB() {
+        return this.roleB;
+    }
+
     public int getTime() {
         return this.time;
     }
