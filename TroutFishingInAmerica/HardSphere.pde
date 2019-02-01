@@ -6,8 +6,8 @@ public abstract class HardSphere extends Mover {
 
     private static final int INFINITY = Integer.MAX_VALUE;
 
-    public HardSphere(PVector position, float radius, float mass) {
-        super(position);
+    public HardSphere(PVector position, PVector velocity, float radius, float mass) {
+        super(position, velocity);
         this.radius = radius;
         this.mass = mass;
         this.highlight = false;
