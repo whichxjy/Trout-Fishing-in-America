@@ -84,6 +84,7 @@ public class CollisionSystem {
 
     // display all hardSpheres
     public void display() {
+        background(138, 170, 234);
         for (HardSphere h : hardSpheres) {
             h.display();
         }

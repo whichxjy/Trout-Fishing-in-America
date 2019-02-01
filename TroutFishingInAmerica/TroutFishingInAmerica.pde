@@ -11,6 +11,5 @@ void setup() {
 }
 
 void draw() {
-    background(138, 170, 234);
     collisionSystem.run();
 }
