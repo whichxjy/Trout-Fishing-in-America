@@ -4,10 +4,13 @@ public class Vehicle extends Mover {
     private float maxForce;         // Maximum steering force
     private float maxSpeed;         // Maximum speed
 
-    public Vehicle(PVector position, PVector velocity, float maxForce, float maxSpeed) {
+    public Vehicle(PVector position, PVector velocity, float size, float maxForce, float maxSpeed) {
         super(position, velocity);
+        this.r = size;
+        this.acceleration = new PVector(0, 0);
         this.maxForce = maxForce;
         this.maxSpeed = maxSpeed;
+
     }
 
     public void follow(FlowField flowField) {
@@ -38,8 +41,8 @@ public class Vehicle extends Mover {
     public void display() {
         // direction of velocity
         float theta = velocity.heading();
-        fill(0);
-        noStroke();
+        fill(29, 0, 255);
+        stroke(0);
         pushMatrix();
         translate(position.x, position.y);
         rotate(theta);
