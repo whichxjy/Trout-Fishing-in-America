@@ -10,7 +10,7 @@ public class Vehicle extends Mover {
         this.maxSpeed = maxSpeed;
     }
 
-    public follow(FlowField flowField) {
+    public void follow(FlowField flowField) {
         PVector desired = flowField.lookup(position);
         desired.mult(maxSpeed);
         PVector steer = PVector.sub(desired, velocity);
