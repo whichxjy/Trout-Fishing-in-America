@@ -5,7 +5,8 @@ public class PerlinFlowField extends FlowField {
     }
 
     public void generate() {
-        float noiseScale = 0.2;
+        noiseSeed((int)random(12345));
+        float noiseScale = 0.1;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 float theta = map(noise(i * noiseScale, j * noiseScale), 0, 1, 0, TWO_PI);
@@ -28,13 +29,14 @@ public class PerlinFlowField extends FlowField {
     }
 
     private void drawVector(int row, int col) {
-        stroke(0);
+        stroke(91, 166, 247);
         pushMatrix();
         translate(col * resolution, row * resolution);
         rotate(field[row][col].heading());
-        int drawScale = resolution - 1;
+        float drawScale = 0.9 * resolution;
         float len = field[row][col].mag() * drawScale;
         line(0, 0, len, 0);
+        line(0, 3, len, 3);
         popMatrix();
     }
 

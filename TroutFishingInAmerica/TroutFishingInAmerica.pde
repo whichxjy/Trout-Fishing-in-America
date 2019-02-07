@@ -3,10 +3,9 @@ FlowFieldSystem flowFieldSystem;
 
 void setup() {
     fullScreen();
-
-    /**********************************
-     *        Collision System        *
-     **********************************/
+    /***************************************
+     *     Initialize Collision System     *
+     ***************************************/
     ArrayList<HardSphere> hardSpheres = new ArrayList<HardSphere>();
     for (int i = 0; i < 10; i++) {
         PVector position = new PVector(random(30, width - 30), random(30, height - 30));
@@ -19,11 +18,11 @@ void setup() {
     int limit = 99999;
     collisionSystem = new CollisionSystem(hardSpheres, limit);
 
-    /***********************************
-     *        Flow Field System        *
-     ***********************************/
+    /****************************************
+     *     Initialize Flow Field System     *
+     ****************************************/
     ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
-    for (int i = 0; i < 300; i++) {
+    for (int i = 0; i < 200; i++) {
         PVector position = new PVector(random(width), random(height));
         PVector velocity = new PVector(0, 0);
         float size = 30;

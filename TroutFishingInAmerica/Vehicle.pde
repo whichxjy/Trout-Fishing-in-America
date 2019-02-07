@@ -41,15 +41,15 @@ public class Vehicle extends Mover {
     public void display() {
         // direction of velocity
         float theta = velocity.heading();
-        fill(29, 0, 255);
+        fill(164, 165, 139);
         stroke(0);
         pushMatrix();
         translate(position.x, position.y);
         rotate(theta);
         beginShape(TRIANGLES);
         vertex(r / 2, 0);
-        vertex(-r / 2, r / 2);
-        vertex(-r / 2, -r / 2);
+        vertex(-r / 2, r / 3);
+        vertex(-r / 2, -r / 3);
         endShape();
         popMatrix();
     }
