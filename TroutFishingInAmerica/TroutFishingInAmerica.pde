@@ -13,7 +13,7 @@ void setup() {
         PVector velocity = PVector.mult(direction, randomGaussian() * 1.5);
         float radius = 20;
         float mass = 50;
-        hardSpheres.add(new Particle(position, velocity, radius, mass));
+        hardSpheres.add(new HardSphere(position, velocity, radius, mass));
     }
     int limit = 99999;
     collisionSystem = new CollisionSystem(hardSpheres, limit);

@@ -1,8 +1,8 @@
-public abstract class HardSphere extends Mover {  
-    protected float radius;
-    protected float mass;
-    protected int count;  // number of collisions so far
-    protected boolean highlight;
+public class HardSphere extends Mover {  
+    private float radius;
+    private float mass;
+    private int count;  // number of collisions so far
+    private boolean highlight;
 
     private static final int INFINITY = Integer.MAX_VALUE;
 
@@ -11,6 +11,16 @@ public abstract class HardSphere extends Mover {
         this.radius = radius;
         this.mass = mass;
         this.highlight = false;
+    }
+
+    public void display() {
+        noStroke();
+        if (highlight) {
+            fill(255);
+        } else {
+            fill(29, 0, 255);
+        }
+        circle(position.x, position.y, 2 * radius);
     }
 
     public void move() {

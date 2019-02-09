@@ -89,4 +89,16 @@ public class CollisionSystem {
             h.display();
         }
     }
+
+    private class Timer {
+
+        public Timer () {
+            // Empty
+        }
+
+        public int getCurrentTime() {
+            return frameCount;
+        }
+
+    }
 }
