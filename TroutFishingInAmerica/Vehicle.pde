@@ -1,11 +1,14 @@
-public class Vehicle extends Mover {
+public class Vehicle {
+    private PVector position;
+    private PVector velocity;
     private PVector acceleration;
-    private float r;                // size
+    private float r;                // Vehicle size
     private float maxForce;         // Maximum steering force
     private float maxSpeed;         // Maximum speed
 
     public Vehicle(PVector position, PVector velocity, float size, float maxForce, float maxSpeed) {
-        super(position, velocity);
+        this.position = position;
+        this.velocity = velocity;
         this.r = size;
         this.acceleration = new PVector(0, 0);
         this.maxForce = maxForce;
