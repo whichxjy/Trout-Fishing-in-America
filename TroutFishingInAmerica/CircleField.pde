@@ -1,7 +1,7 @@
-public class RadialRepulsionField extends FlowField {
+public class CircleField extends FlowField {
     private PVector centre;
 
-    public RadialRepulsionField(int resolution) {
+    public CircleField(int resolution) {
         super(resolution);
     }
 
@@ -11,7 +11,7 @@ public class RadialRepulsionField extends FlowField {
             for (int j = 0; j < cols; j++) {
                 float x = j - centre.x / resolution;
                 float y = centre.y / resolution - i;
-                float theta = atan2(x, y) + 3 * PI / 2;
+                float theta = atan2(x, y);
                 field[i][j] = new PVector(cos(theta), sin(theta));
             }
         }

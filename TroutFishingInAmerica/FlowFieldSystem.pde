@@ -38,6 +38,9 @@ public class FlowFieldSystem {
         else if (key == '2') {
             field = new RadialRepulsionField(resolution);
         }
+        else if (key == '3') {
+            field = new CircleField(resolution);
+        }
     }
     
     private void display() {
