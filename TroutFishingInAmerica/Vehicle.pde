@@ -26,7 +26,6 @@ public class Vehicle {
 
     public void run() {
         update();
-        checkBorders();
         display();
     }
 
@@ -57,16 +56,12 @@ public class Vehicle {
         popMatrix();
     }
 
-    public void checkBorders() {
-        if (position.x < -r) {
-            position.x = width + r;
-        } else if (position.x > width + r) {
-            position.x = -r;
-        } else if (position.y < -r) {
-            position.y = height + r;
-        } else if (position.y > height + r) {
-            position.y = -r;
-        }
+    public PVector getPosition() {
+        return this.position;
+    }
+
+    public float getSize() {
+        return this.r;
     }
 
 }
