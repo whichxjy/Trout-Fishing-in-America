@@ -15,11 +15,6 @@ public class PerlinNoiseField extends FlowField {
         }
     }
 
-    public void updateResolution(int resolution) {
-        setResolution(resolution);
-        generate();
-    }
-
     public void checkBorders(Vehicle vehicle) {
         PVector position = vehicle.getPosition();
         float r = vehicle.getSize();

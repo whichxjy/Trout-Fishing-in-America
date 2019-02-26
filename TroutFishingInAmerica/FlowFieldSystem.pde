@@ -8,7 +8,7 @@ public class FlowFieldSystem {
         this.vehicles = vehicles;
         this.resolution = resolution;
         field = new PerlinNoiseField(resolution);
-        timer = new Timer(10000);
+        timer = new Timer(15000);
         timer.start();
     }
 
@@ -40,6 +40,9 @@ public class FlowFieldSystem {
         }
         else if (key == '3') {
             field = new CircleField(resolution);
+        }
+        else if (key == '4') {
+            field = new SidewaysField(resolution);
         }
     }
     
