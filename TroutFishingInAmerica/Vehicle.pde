@@ -5,6 +5,7 @@ public class Vehicle {
     private float r;                // Vehicle size
     private float maxForce;         // Maximum steering force
     private float maxSpeed;         // Maximum speed
+    private boolean caught;
 
     public Vehicle(PVector position, PVector velocity, float size, float maxForce, float maxSpeed) {
         this.position = position;
@@ -13,6 +14,7 @@ public class Vehicle {
         this.acceleration = new PVector(0, 0);
         this.maxForce = maxForce;
         this.maxSpeed = maxSpeed;
+        this.caught = false;
 
     }
 
@@ -24,20 +26,29 @@ public class Vehicle {
         applyForce(steer);
     }
 
-    public void run() {
-        update();
-        display();
-    }
-
     public void applyForce(PVector force) {
         acceleration.add(force);
     }
 
+    public void caught() {
+        caught = true;
+    }
+
+    public void escape() {
+        caught = false;
+    }
+
     public void update() {
-        velocity.add(acceleration);
-        velocity.limit(maxSpeed);
-        position.add(velocity);
-        acceleration.mult(0);
+        if (caught) {
+            // change direction randomly
+            velocity.rotate(((int)random(2) * 2 - 1) * PI / 10);
+        }
+        else {
+            velocity.add(acceleration);
+            velocity.limit(maxSpeed);
+            position.add(velocity);
+            acceleration.mult(0);
+        }
     }
 
     public void display() {

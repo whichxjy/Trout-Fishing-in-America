@@ -1,11 +1,13 @@
 public class FlowFieldSystem {
     private FlowField field;
     private ArrayList<Vehicle> vehicles;
+    private Catcher catcher;
     private Timer timer;
     private int resolution;
     
     public FlowFieldSystem(ArrayList<Vehicle> vehicles, int resolution) {
         this.vehicles = vehicles;
+        this.catcher = new Catcher();
         this.resolution = resolution;
         field = new PerlinNoiseField(resolution);
         timer = new Timer(15000);
@@ -13,22 +15,34 @@ public class FlowFieldSystem {
     }
 
     public void run() {
+        update();
+        display();
+    }
+
+    private void update() {
         if (keyPressed) {
             selectFlowField();
         }
 
+        // If timer is finished, regenerate flow field and restart timer
         if (timer.isFinished()) {
             field.generate();
             timer.start();
         }
 
+        catcher.update();
+
         for (Vehicle v : vehicles) {
             v.follow(field);
-            v.run();
+            if (catcher.capture(v)) {
+                v.caught();
+            }
+            else {
+                v.escape();
+            }
             field.checkBorders(v);
+            v.update();
         }
-
-        display();
     }
 
     private void selectFlowField() {
@@ -49,6 +63,7 @@ public class FlowFieldSystem {
     private void display() {
         background(255);
         field.display();
+        catcher.display();
         for (Vehicle v : vehicles) {
             v.display();
         }

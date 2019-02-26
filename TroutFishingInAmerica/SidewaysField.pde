@@ -15,7 +15,7 @@ public class SidewaysField extends FlowField {
                 PVector dir = new PVector(i - end.y / resolution, j - end.x / resolution).rotate(alpha);
                 float theta = atan2(dir.x, dir.y);
                 
-                if (theta > 3 * PI / 4 || theta < -3 * PI / 4) {
+                if (theta > 3 * QUARTER_PI || theta < -3 * QUARTER_PI) {
                     field[i][j] = new PVector(1.5 * cos(alpha), 1.5 * sin(alpha));
                 }
                 else {
