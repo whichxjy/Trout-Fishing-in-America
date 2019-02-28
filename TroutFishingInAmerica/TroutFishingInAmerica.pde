@@ -2,7 +2,6 @@ FlowFieldSystem flowFieldSystem;
 
 void setup() {
     fullScreen();
-
     /****************************************
      *     Initialize Flow Field System     *
      ****************************************/

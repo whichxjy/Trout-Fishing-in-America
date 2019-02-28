@@ -36,8 +36,7 @@ public class FlowFieldSystem {
             v.follow(field);
             if (catcher.capture(v)) {
                 v.caught();
-            }
-            else {
+            } else {
                 v.escape();
             }
             field.checkBorders(v);
@@ -48,14 +47,11 @@ public class FlowFieldSystem {
     private void selectFlowField() {
         if (key == '1') {
             field = new PerlinNoiseField(resolution);
-        }
-        else if (key == '2') {
+        } else if (key == '2') {
             field = new RadialRepulsionField(resolution);
-        }
-        else if (key == '3') {
+        } else if (key == '3') {
             field = new CircleField(resolution);
-        }
-        else if (key == '4') {
+        } else if (key == '4') {
             field = new SidewaysField(resolution);
         }
     }

@@ -42,8 +42,7 @@ public class Vehicle {
         if (caught) {
             // change direction randomly
             velocity.rotate(((int)random(2) * 2 - 1) * PI / 10);
-        }
-        else {
+        } else {
             velocity.add(acceleration);
             velocity.limit(maxSpeed);
             position.add(velocity);

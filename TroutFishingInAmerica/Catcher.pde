@@ -11,8 +11,7 @@ public class Catcher {
         float distance = PVector.dist(this.position, vehicle.getPosition());
         if (distance < this.radius) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -21,8 +20,7 @@ public class Catcher {
         position.set(mouseX, mouseY);
         if (mousePressed) {
             radius = constrain(radius + 5, 0, height / 6);
-        }
-        else {
+        } else {
             radius = 0;
         }
     }

@@ -17,8 +17,7 @@ public class SidewaysField extends FlowField {
                 
                 if (theta > 3 * QUARTER_PI || theta < -3 * QUARTER_PI) {
                     field[i][j] = new PVector(1.5 * cos(alpha), 1.5 * sin(alpha));
-                }
-                else {
+                } else {
                     field[i][j] = new PVector(0.3 * cos(alpha), 0.3 * sin(alpha));
                 }
             }
