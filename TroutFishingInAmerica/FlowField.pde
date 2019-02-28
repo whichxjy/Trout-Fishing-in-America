@@ -31,6 +31,7 @@ public abstract class FlowField {
 
     private void drawVector(int row, int col) {
         stroke(91, 166, 247);
+        strokeWeight(4);
         pushMatrix();
         translate(col * resolution, row * resolution);
         rotate(field[row][col].heading());

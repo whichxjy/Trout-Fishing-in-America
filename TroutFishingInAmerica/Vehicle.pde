@@ -56,6 +56,7 @@ public class Vehicle {
         float theta = velocity.heading();
         fill(164, 165, 139);
         stroke(0);
+        strokeWeight(4);
         pushMatrix();
         translate(position.x, position.y);
         rotate(theta);

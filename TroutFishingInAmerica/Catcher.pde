@@ -20,7 +20,7 @@ public class Catcher {
     public void update() {
         position.set(mouseX, mouseY);
         if (mousePressed) {
-            radius = constrain(radius + 5, 0, height / 3);
+            radius = constrain(radius + 5, 0, height / 6);
         }
         else {
             radius = 0;
@@ -28,8 +28,20 @@ public class Catcher {
     }
 
     public void display() {
-        fill(100);
-        ellipse(position.x, position.y, 2 * radius, 2 * radius);
+        noFill();
+        stroke(198, 171, 87);
+        strokeWeight(5);
+        pushMatrix();
+        translate(position.x, position.y);
+        float r;
+        for (r = radius; r > 0; r -= 30) {
+            circle(0, 0, 2 * r);
+        }
+        for (float i = 0; i < 24; i++) {
+            rotate(PI / 12);
+            line(0, 0, 0, radius);
+        }
+        popMatrix();
     }
 
 }
