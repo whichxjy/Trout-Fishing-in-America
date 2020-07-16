@@ -15,7 +15,6 @@ public class Vehicle {
         this.maxForce = maxForce;
         this.maxSpeed = maxSpeed;
         this.caught = false;
-
     }
 
     public void follow(FlowField flowField) {
@@ -74,5 +73,4 @@ public class Vehicle {
     public float getSize() {
         return this.r;
     }
-
 }

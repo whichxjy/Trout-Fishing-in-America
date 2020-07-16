@@ -9,7 +9,7 @@ public abstract class FlowField {
     }
 
     public void setResolution(int resolution) {
-        this.resolution = resolution; 
+        this.resolution = resolution;
         this.rows = height / resolution;
         this.cols = width / resolution;
         this.field = new PVector[rows][cols];
@@ -44,5 +44,4 @@ public abstract class FlowField {
 
     public abstract void generate();
     public abstract void checkBorders(Vehicle vehicle);
-    
 }

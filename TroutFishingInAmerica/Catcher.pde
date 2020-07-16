@@ -1,7 +1,7 @@
 public class Catcher {
     private PVector position;
     private float radius;
-    
+
     public Catcher() {
         this.position = new PVector(0, 0);
         this.radius = 0;
@@ -41,5 +41,4 @@ public class Catcher {
         }
         popMatrix();
     }
-
 }

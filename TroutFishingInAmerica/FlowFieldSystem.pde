@@ -4,7 +4,7 @@ public class FlowFieldSystem {
     private Catcher catcher;
     private Timer timer;
     private int resolution;
-    
+
     public FlowFieldSystem(ArrayList<Vehicle> vehicles, int resolution) {
         this.vehicles = vehicles;
         this.catcher = new Catcher();
@@ -55,7 +55,7 @@ public class FlowFieldSystem {
             field = new SidewaysField(resolution);
         }
     }
-    
+
     private void display() {
         background(255);
         field.display();
@@ -64,5 +64,4 @@ public class FlowFieldSystem {
             v.display();
         }
     }
-
 }

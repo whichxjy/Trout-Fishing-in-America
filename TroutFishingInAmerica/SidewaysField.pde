@@ -9,12 +9,12 @@ public class SidewaysField extends FlowField {
     public void generate() {
         alpha = random(-PI, PI);
         end = new PVector(random(0.2 * width, 0.8 * width), random(0.2 * height, 0.8 * height));
-        
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 PVector dir = new PVector(i - end.y / resolution, j - end.x / resolution).rotate(alpha);
                 float theta = atan2(dir.x, dir.y);
-                
+
                 if (theta > 3 * QUARTER_PI || theta < -3 * QUARTER_PI) {
                     field[i][j] = new PVector(1.5 * cos(alpha), 1.5 * sin(alpha));
                 } else {

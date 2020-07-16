@@ -18,5 +18,4 @@ public class Timer {
     public void setTotalTime(int totalTime) {
         this.totalTime = totalTime;
     }
-
 }
